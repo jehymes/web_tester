@@ -7,7 +7,7 @@
 
     function webRotas($routeProvider, $locationProvider){
         $locationProvider.html5Mode({
-            enabled: true,
+            enabled: false,
             requireBase: false
         });
 
@@ -17,6 +17,16 @@
         .when('/', {
             templateUrl: 'app/views/home.html',
             controller: 'HomeWebController',
+            controllerAs: 'vm'
+        })
+        .when('/login', {
+            templateUrl: 'app/views/login.html',
+            controller: 'LoginWebController',
+            controllerAs: 'vm'
+        })
+        .when('/signup', {
+            templateUrl: 'app/views/sign-up.html',
+            controller: 'SignUpWebController',
             controllerAs: 'vm'
         })
         .otherwise({
