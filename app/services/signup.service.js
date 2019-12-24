@@ -1,13 +1,13 @@
 (function(angular) {
-  "use strict";
+  'use strict';
 
   // service
-  angular.module("webTesterApp").factory("SignUpWebService", signUpWebService);
+  angular.module('webTesterApp').factory('SignUpWebService', signUpWebService);
 
-  signUpWebService.$inject = ["$http", "$q"];
+  signUpWebService.$inject = ['$http', '$q'];
 
   function signUpWebService($http, $q) {
-    const baseRoot = "localhost:3000/user";
+    var baseRoot = 'localhost:3000/user';
     return {
       cadastrarUsuario: cadastrarUsuario
     };
@@ -21,20 +21,21 @@
     function cadastrarUsuario(setNewUser) {
       var deferred = $q.defer();
       $http({
-              method: 'POST',
-              url: baseRoot+'/newUser',
-              data: setNewUser,
-              headers: {
-                  'Content-type': 'application/json;charset=UTF-8'
-              }
-          })
-          .then(function (response) {
-              deferred.resolve(response.data);
-          })['catch'](function (error) {
-              deferred.reject(error);
-          });
+        method: 'POST',
+        url: baseRoot + '/newUser',
+        data: setNewUser,
+        headers: {
+          'Content-type': 'application/json;charset=UTF-8'
+        }
+      })
+        .then(function(response) {
+          deferred.resolve(response.data);
+        })
+        ['catch'](function(error) {
+          deferred.reject(error);
+        });
 
       return deferred.promise;
-  }
+    }
   }
 })(angular);

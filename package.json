@@ -4,7 +4,7 @@
   "description": "Web Tester AngularJs",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "karma start karma.conf.js"
   },
   "author": "Jehymison Gil Alves Oliveira",
   "license": "ISC",
@@ -13,5 +13,28 @@
     "angular": "^1.7.9",
     "angular-route": "^1.7.9",
     "bulma": "^0.8.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-htmllint": "^0.2.7",
+    "grunt-karma": "^2.0.0",
+    "grunt-strip-code": "^1.0.4",
+    "grunt-timer": "^0.6.0",
+    "jit-grunt": "^0.10.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.7.1",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "phantomjs-prebuilt": "^2.1.16"
   }
 }

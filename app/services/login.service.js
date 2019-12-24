@@ -1,11 +1,10 @@
 (function(angular) {
-  "use strict";
+  'use strict';
 
   // service
-  angular.module("webTesterApp")
-  .factory("LoginWebService", loginWebService);
+  angular.module('webTesterApp').factory('LoginWebService', loginWebService);
 
-  loginWebService.$inject = ["$http", "$q"];
+  loginWebService.$inject = ['$http', '$q'];
 
   function loginWebService($http, $q) {
     return {
@@ -17,11 +16,11 @@
       var deferred = $q.defer();
 
       $http
-        .get("https://jsonplaceholder.typicode.com/users", {})
+        .get('https://jsonplaceholder.typicode.com/users', {})
         .then(function(response) {
           deferred.resolve(response.data);
         })
-        ["catch"](function(error) {
+        ['catch'](function(error) {
           deferred.reject(error);
         });
 
@@ -29,7 +28,7 @@
     }
 
     function usuariosJsonPlaceholder2(getUser) {
-      return $http.get("https://jsonplaceholder.typicode.com/users", {
+      return $http.get('https://jsonplaceholder.typicode.com/users', {
         params: getUser
       });
     }

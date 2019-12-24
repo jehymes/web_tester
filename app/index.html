@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html
+  lang="pt-br"
+  ng-app="webTesterApp"
+  ng-controller="WebTesteAppController as vmroot"
+  ng-init="vmroot.init()"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="./resource/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./resource/css/bulma.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="./resource/css/login.css" />
+    <title>Web Tester</title>
+
+    <!-- Imports Principais -->
+    <script src="./resource/js/angular.min.js"></script>
+    <script src="./resource/js/angular-route.min.js"></script>
+    <script src="./web-tester-app.module.js"></script>
+
+    <!-- Rotas -->
+    <script src="./web-tester.routes.js"></script>
+
+    <!-- Services -->
+    <script src="./services/home.service.js"></script>
+    <script src="./services/login.service.js"></script>
+    <script src="./services/signup.service.js"></script>
+    <script src="./services/admin.service.js"></script>
+
+    <!-- Controllers -->
+    <script src="./controllers/home-controller.js"></script>
+    <script src="./controllers/login-controller.js"></script>
+    <script src="./controllers/signup-controller.js"></script>
+    <script src="./controllers/admin-controller.js"></script>
+  </head>
+  <body>
+    <div class="column" ng-if="ativo">
+      <div ng-model="mensagem">
+        <article class="message {{mensagem.type}}">
+          <div class="message-header">
+            <p>{{mensagem.title}}</p>
+            <button
+              class="delete"
+              ng-click="vmroot.limpaMsgsTela()"
+              aria-label="delete"
+            ></button>
+          </div>
+          <div class="message-body">
+            {{mensagem.text}}
+          </div>
+        </article>
+      </div>
+    </div>
+    <ng-view></ng-view>
+
+    <!-- Teste -->
+  </body>
+</html>

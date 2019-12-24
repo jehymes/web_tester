@@ -1,27 +1,25 @@
 (function(angular) {
-    "use strict";
-  
-    angular
+  'use strict';
+
+  angular
     .module('webTesterApp')
     .controller('HomeWebController', homeControllerWeb);
 
-    homeControllerWeb.$inject = [];
+  homeControllerWeb.$inject = [];
 
-    function homeControllerWeb(){
-        var vm = this;
+  function homeControllerWeb() {
+    var vm = this;
 
-        //Escopo de Funções
+    //Escopo de Funções
 
-        //Variáveis
-        vm.homeInit = homeInit;
+    //Variáveis
+    vm.homeInit = homeInit;
 
-        //Constantes
+    //Constantes
 
-        //Funções
-        function homeInit(){
-            console.log('Home iniciado');
-        }
-
+    //Funções
+    function homeInit() {
+      console.log('Home iniciado');
     }
-  })(angular);
-  
+  }
+})(angular);
