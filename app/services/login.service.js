@@ -7,16 +7,22 @@
   loginWebService.$inject = ['$http', '$q'];
 
   function loginWebService($http, $q) {
+    var baseUrl = 'http://localhost:3000';
     return {
-      usuariosJsonPlaceholder: usuariosJsonPlaceholder,
-      usuariosJsonPlaceholder2: usuariosJsonPlaceholder2
+      loginUsuario: loginUsuario
     };
 
-    function usuariosJsonPlaceholder() {
+    function loginUsuario(userData) {
       var deferred = $q.defer();
-
-      $http
-        .get('https://jsonplaceholder.typicode.com/users', {})
+      $http({
+        method: 'POST',
+        url: baseUrl + '/auth/authenticate',
+        data: userData,
+        headers: {
+          'Content-type': 'application/json;charset=UTF-8',
+          'Access-Control-Allow-Origin': '*'
+        }
+      })
         .then(function(response) {
           deferred.resolve(response.data);
         })
@@ -25,12 +31,6 @@
         });
 
       return deferred.promise;
-    }
-
-    function usuariosJsonPlaceholder2(getUser) {
-      return $http.get('https://jsonplaceholder.typicode.com/users', {
-        params: getUser
-      });
     }
   }
 })(angular);

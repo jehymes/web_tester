@@ -28,16 +28,17 @@
 
     function testeUsuarios(dadosLogin) {
       limpaMsgsTela();
-      if (dadosLogin !== undefined &&
-        dadosLogin.email === 'admin@admin.com' &&
-        dadosLogin.senha === 'admin123'
-      ) {
-        $location.path('/admin');
+      if (dadosLogin.email && dadosLogin.senha) {
+        LoginWebService.loginUsuario(dadosLogin)
+        .then(function(resposta){
+          console.log(resposta);
+          //$location.path('/admin');
+        });
       } else {
         adicionarMsgTela(
           'is-danger',
           'ERROR',
-          'Email ou senha invalidos. Tente novamente!'
+          'Preencha todos os campos e tente novamente!'
         );
       }
     }
