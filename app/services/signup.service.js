@@ -7,25 +7,20 @@
   signUpWebService.$inject = ['$http', '$q'];
 
   function signUpWebService($http, $q) {
-    var baseRoot = 'localhost:3000/user';
+    var baseUrl = 'http://localhost:3000';
     return {
-      cadastrarUsuario: cadastrarUsuario
+      cadastrarNovoUsuario: cadastrarNovoUsuario
     };
 
-    // function cadastrarUsuario(setNewUser) {
-    //   return $http.post("localhost:3000/user/registerUser", {
-    //     data: setNewUser
-    //   });
-    // }
-
-    function cadastrarUsuario(setNewUser) {
+    function cadastrarNovoUsuario(userData) {
       var deferred = $q.defer();
       $http({
         method: 'POST',
-        url: baseRoot + '/newUser',
-        data: setNewUser,
+        url: baseUrl + '/auth/register',
+        data: userData,
         headers: {
-          'Content-type': 'application/json;charset=UTF-8'
+          'Content-type': 'application/json;charset=UTF-8',
+          'Access-Control-Allow-Origin': '*'
         }
       })
         .then(function(response) {

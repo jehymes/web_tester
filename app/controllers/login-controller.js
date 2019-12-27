@@ -31,8 +31,13 @@
       if (dadosLogin.email && dadosLogin.senha) {
         LoginWebService.loginUsuario(dadosLogin)
         .then(function(resposta){
-          console.log(resposta);
-          //$location.path('/admin');
+          $location.path('/admin');
+        }).catch(function(resposta){
+          adicionarMsgTela(
+            'is-danger',
+            resposta.data.error,
+            resposta.data.msg
+          );
         });
       } else {
         adicionarMsgTela(
